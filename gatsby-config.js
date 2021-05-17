@@ -1,14 +1,22 @@
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
+const siteConfig = require('./config/site-config');
+
 module.exports = {
+
+
   siteMetadata: {
-    title: "Gatsby Boilerplate",
+  ...siteConfig,
   },
   plugins: [
-/*     {
+   {
       resolve: "gatsby-source-datocms",
       options: {
-        apiToken: "",
+        apiToken: process.env.DATO_CMS_KEY,
       },
-    }, */
+    }, 
     "gatsby-plugin-styled-components",
 
     {
