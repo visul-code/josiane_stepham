@@ -1,6 +1,6 @@
 import React from "react";
-import Helmet from "react-helmet";
-import styled, { ThemeProvider } from "styled-components";
+import { Helmet } from "react-helmet";
+import styled from "styled-components";
 
 
 
@@ -18,7 +18,7 @@ margin: 80px 0;
 const Layout = ({ children, location }) => {
   return (
     <SiteRoot id="top">
-       
+
       <Helmet
         htmlAttributes={{
           lang: "de",
@@ -27,13 +27,13 @@ const Layout = ({ children, location }) => {
         <link rel="preconnect" href="https://datocms-assets.com" />
       </Helmet>
 
-    
 
 
 
-        {children}
 
-   
+      {children}
+
+
     </SiteRoot>
   );
 };
