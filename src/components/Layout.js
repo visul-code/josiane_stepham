@@ -1,24 +1,16 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import styled from "styled-components";
-
-
-
-import { mediaQueries } from "../utils/MediaQuerie";
+import Navbar from "../components/Navbar";
+import GlobalContextProvider from "../global/Context";
 
 const SiteRoot = styled.div`
-  margin: 80px 0px 0px 0px;
-
-  ${mediaQueries.lessThan("tablet")`
-margin: 80px 0;
-
-`}
+  margin: 135px 0px 0px 0px;
 `;
 
 const Layout = ({ children, location }) => {
   return (
     <SiteRoot id="top">
-
       <Helmet
         htmlAttributes={{
           lang: "de",
@@ -26,14 +18,8 @@ const Layout = ({ children, location }) => {
       >
         <link rel="preconnect" href="https://datocms-assets.com" />
       </Helmet>
-
-
-
-
-
+      <Navbar />
       {children}
-
-
     </SiteRoot>
   );
 };
