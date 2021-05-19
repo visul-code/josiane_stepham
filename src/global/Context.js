@@ -12,22 +12,51 @@ const GlobalContextProvider = ({ children }) => {
   };
 
   const GlobalStyle = createGlobalStyle`
-  html, body{
 
+//BODY, HTML
+  html, body{
     background-color: ${({ theme }) => theme.colors.background};
    font-family: ${({ theme }) => theme.fonts.primary};
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-
+    font-size: 62.5%;
   }
 
+
+//TYPO
+h1{
+ font-size: 9rem;
+ font-weight: 300;
+ color: ${({ theme }) => theme.colors.secondary};
+}
+
+
+.paragraph{
+  font-size: 2rem;
+  font-weight: 300;
+  color: ${({ theme }) => theme.colors.text};
+}
+
+.t-paragraph{
+font-size: 3rem;
+font-weight: 300;
+line-height: 3.6rem;
+color: ${({ theme }) => theme.colors.primary};
+
+}
+
+
+
   `;
+
   const themes = {
     default: {
       colors: {
         primary: "#4f826e",
         secondary: "#da002d",
         background: "#ffffff",
+        text: "#000000",
+        textAlt: "#ffffff",
       },
       fonts: {
         primary: "Helvetica Neue, Arial, sans-serif;",

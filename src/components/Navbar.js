@@ -4,7 +4,8 @@ import Logo from "../images/marke.svg";
 import { AnchorLink } from "gatsby-plugin-anchor-links";
 
 const StyledLink = styled((props) => <AnchorLink {...props} />)`
-  font-size: 1.25 rem;
+  font-size: 2rem;
+  font-weight: 300;
   text-decoration: none;
   color: ${({ theme }) => theme.colors.primary};
   background-color: ${({ theme }) => theme.primary};
@@ -14,11 +15,11 @@ const NavbarWrapper = styled.nav`
   height: 80px;
   position: fixed;
   top: 0;
-  left: 0;
   width: 100%;
   padding: 1rem 0;
   box-sizing: border-box;
   display: inline-flex;
+  background-color: ${({ theme }) => theme.colors.background};
 
   .nav-d {
     display: flex;
@@ -40,11 +41,12 @@ const Navbar = () => {
       <AnchorLink to="/">
         <Logo />
       </AnchorLink>
+
       <div className="nav-d">
         <StyledLink to="/#naturheilkunde">Naturheilkunde</StyledLink>
         <StyledLink to="/#alternativmedizin">Alternativmedizin</StyledLink>
-        <StyledLink to="#uebermich">Über mich</StyledLink>
-        <StyledLink to="/praxis">Praxis</StyledLink>
+        <StyledLink to="/#uebermich">Über mich</StyledLink>
+        <StyledLink to="/#praxis">Praxis</StyledLink>
       </div>
     </NavbarWrapper>
   );

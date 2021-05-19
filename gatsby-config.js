@@ -1,26 +1,21 @@
-require('dotenv').config({
+require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
-const siteConfig = require('./config/site-config');
+const siteConfig = require("./config/site-config");
 
 module.exports = {
-
-
   siteMetadata: {
     ...siteConfig,
   },
   plugins: [
-    'gatsby-plugin-react-helmet',
+    "gatsby-plugin-react-helmet",
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     "gatsby-plugin-styled-components",
     {
-      resolve: 'gatsby-plugin-anchor-links',
-      options: {
-        offset: -90,
-      },
+      resolve: "gatsby-plugin-anchor-links",
     },
     {
       resolve: "gatsby-source-datocms",
@@ -30,27 +25,27 @@ module.exports = {
     },
 
     {
-      resolve: 'gatsby-plugin-sitemap',
+      resolve: "gatsby-plugin-sitemap",
       options: {
         output: siteConfig.sitemapPath,
       },
     },
     {
-      resolve: 'gatsby-plugin-react-svg',
+      resolve: "gatsby-plugin-react-svg",
       options: {
         rule: {
-          include: /images/
-        }
-      }
+          include: /images/,
+        },
+      },
     },
     {
-      resolve: 'gatsby-plugin-canonical-urls',
+      resolve: "gatsby-plugin-canonical-urls",
       options: {
         siteUrl: siteConfig.siteUrl,
       },
     },
     {
-      resolve: 'gatsby-plugin-robots-txt',
+      resolve: "gatsby-plugin-robots-txt",
       options: {
         host: siteConfig.siteUrl,
         sitemap: `${siteConfig.siteUrl}${siteConfig.sitemapPath}`,
@@ -63,23 +58,18 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: "gatsby-source-filesystem",
       options: {
-        name: 'images',
+        name: "images",
         path: `${__dirname}/src/images`,
       },
     },
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: [
-          `IBM Plex Mono`,
-
-        ],
-        display: 'swap'
-      }
-    }
-
-
+        fonts: [`IBM Plex Mono`],
+        display: "swap",
+      },
+    },
   ],
 };

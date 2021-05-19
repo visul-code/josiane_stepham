@@ -2,7 +2,6 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import styled from "styled-components";
 import Navbar from "../components/Navbar";
-import GlobalContextProvider from "../global/Context";
 
 const SiteRoot = styled.div`
   margin: 135px 0px 0px 0px;

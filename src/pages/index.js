@@ -1,17 +1,25 @@
-import React, { Fragment } from "react";
+import React from "react";
 import styled from "styled-components";
-const IndexWrapper = styled.div`
+import Hero from "../components/Hero";
+import Offer from "../components/Offer";
+import About from "../components/About";
+const IndexWrapper = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
   color: ${({ theme }) => theme.primary};
+  .placeholder {
+    height: 100vh;
+  }
 `;
 
 const IndexPage = () => {
   return (
     <IndexWrapper>
-      <h1>THIS IS MY GATSBY BOILERPLATE</h1>
-      <h3>time to build something 🏗️</h3>
+      <Hero />
+      <Offer />
+      <About />
+      <div className="placeholder"></div>
     </IndexWrapper>
   );
 };
