@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import Logo from "../images/marke.svg";
 import { AnchorLink } from "gatsby-plugin-anchor-links";
+import { mediaQueries } from "../utils/MediaQuerie";
+import Hamburger from "./Hamburger";
+import { GlobalStateContext } from "../global/Context";
 
 const StyledLink = styled((props) => <AnchorLink {...props} />)`
   font-size: 2rem;
@@ -12,11 +15,12 @@ const StyledLink = styled((props) => <AnchorLink {...props} />)`
 `;
 
 const NavbarWrapper = styled.nav`
-  height: 80px;
+  height: 100px;
   position: fixed;
   top: 0;
+  z-index: 100;
   width: 100%;
-  padding: 1rem 0;
+  padding: 1rem 10%;
   box-sizing: border-box;
   display: inline-flex;
   background-color: ${({ theme }) => theme.colors.background};
@@ -27,6 +31,43 @@ const NavbarWrapper = styled.nav`
     justify-content: space-around;
     align-items: center;
     margin-left: auto;
+    ${mediaQueries.lessThan("tablet")`
+    
+    display: none;
+    
+    `}
+  }
+
+  .nav-m {
+    display: none;
+
+    ${mediaQueries.lessThan("tablet")`
+    
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: flex-end;
+    
+    `}
+  }
+
+  .nav-mm {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: ${({ theme }) => theme.colors.background};
+    padding: 3rem;
+    transition: transform 0.5s ease-in-out;
+    transform: ${(props) =>
+      props.open ? "translate(0,0)" : "translate(-100%, 0)"};
+
+    a {
+      font-size: 5rem;
+    }
   }
 
   svg {
@@ -36,8 +77,10 @@ const NavbarWrapper = styled.nav`
 `;
 
 const Navbar = () => {
+  const { open, handleSetOpen } = useContext(GlobalStateContext);
+
   return (
-    <NavbarWrapper>
+    <NavbarWrapper open={open}>
       <AnchorLink to="/">
         <Logo />
       </AnchorLink>
@@ -47,6 +90,32 @@ const Navbar = () => {
         <StyledLink to="/#alternativmedizin">Alternativmedizin</StyledLink>
         <StyledLink to="/#uebermich">Über mich</StyledLink>
         <StyledLink to="/#praxis">Praxis</StyledLink>
+      </div>
+      <div className="nav-m">
+        <Hamburger />
+        <div className="nav-mm">
+          <StyledLink
+            onAnchorLinkClick={() => handleSetOpen()}
+            to="/#naturheilkunde"
+          >
+            Naturheilkunde
+          </StyledLink>
+          <StyledLink
+            onAnchorLinkClick={() => handleSetOpen()}
+            to="/#alternativmedizin"
+          >
+            Alternativmedizin
+          </StyledLink>
+          <StyledLink
+            onAnchorLinkClick={() => handleSetOpen()}
+            to="/#uebermich"
+          >
+            Über mich
+          </StyledLink>
+          <StyledLink onAnchorLinkClick={() => handleSetOpen()} to="/#praxis">
+            Praxis
+          </StyledLink>
+        </div>
       </div>
     </NavbarWrapper>
   );

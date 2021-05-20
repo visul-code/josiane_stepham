@@ -2,28 +2,51 @@ import styled from "styled-components";
 import React from "react";
 import Container from "../components/Container";
 import OfferArt from "../images/natur.svg";
+import { mediaQueries } from "../utils/MediaQuerie";
 
 const OfferWrapper = styled.div`
   width: 100%;
+  padding: 20rem 0;
 
   section {
     flex-direction: row;
+    ${mediaQueries.lessThan("tablet")`
+flex-direction: column;
+`}
   }
 
-  .svg-wrapper {
+  .svg-wrapper-d,
+  .svg-wrapper-m {
     flex: 1;
 
     svg {
-      width: 120%;
+      width: 100%;
       height: auto;
     }
   }
+
+  .svg-wrapper-d {
+    ${mediaQueries.lessThan("tablet")`
+display: none;
+`}
+  }
+  .svg-wrapper-m {
+    display: none;
+    ${mediaQueries.lessThan("tablet")`
+  display: block;
+`}
+  }
+
   .t-container {
     flex: 1;
   }
 
   .content {
+    flex: 1;
     margin-left: 6rem;
+    ${mediaQueries.lessThan("tablet")`
+margin: 0;
+`}
   }
 `;
 
@@ -37,7 +60,7 @@ const Offer = () => {
             Ein Blindtext sollte möglichst viele verschiedene Buchstaben
             enthalten und in der Originalsprache gesetzt sein.
           </p>
-          <div className="svg-wrapper">
+          <div className="svg-wrapper-d">
             <OfferArt />
           </div>
         </div>
@@ -76,6 +99,9 @@ const Offer = () => {
             gibt lediglich den Grauwert der Schrift an. Ist das wirklich so? Ist
             es gleichgültig ob ich schreibe: »Dies ist ein Blindtext.
           </p>
+        </div>
+        <div className="svg-wrapper-m">
+          <OfferArt />
         </div>
       </Container>
       <Container>

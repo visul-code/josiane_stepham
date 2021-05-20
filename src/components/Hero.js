@@ -2,6 +2,7 @@ import styled from "styled-components";
 import React from "react";
 import Container from "../components/Container";
 import HeroArt from "../images/hero.svg";
+import { mediaQueries } from "../utils/MediaQuerie";
 
 const HeroWrapper = styled.div`
   width: 100%;
@@ -9,6 +10,13 @@ const HeroWrapper = styled.div`
 
   section {
     flex-direction: row;
+
+    ${mediaQueries.lessThan("tablet")`
+
+flex-direction: column-reverse;
+
+
+`}
   }
 
   .svg-wrapper {

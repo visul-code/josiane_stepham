@@ -1,14 +1,17 @@
 import styled from "styled-components";
 import React from "react";
 import Container from "../components/Container";
-
+import { mediaQueries } from "../utils/MediaQuerie";
 const AboutWrapper = styled.div`
   width: 100%;
-  height: 100vh;
-  background-color: ${({ theme }) => theme.colors.primary};
 
+  background-color: ${({ theme }) => theme.colors.primary};
+  padding: 20rem 0;
   section {
     flex-direction: row;
+    ${mediaQueries.lessThan("tablet")`
+flex-direction: column;
+`}
   }
 
   .t-container {
@@ -21,6 +24,10 @@ const AboutWrapper = styled.div`
   .content {
     flex: 1;
     margin-left: 6rem;
+    ${mediaQueries.lessThan("tablet")`
+margin-left: 0;
+`}
+
     .paragraph {
       color: ${({ theme }) => theme.colors.textAlt};
     }
@@ -37,7 +44,6 @@ const Offer = () => {
             Ein Blindtext sollte möglichst viele verschiedene Buchstaben
             enthalten und in der Originalsprache gesetzt sein.
           </p>
-          <div className="svg-wrapper"></div>
         </div>
         <div className="content">
           <p className="paragraph">

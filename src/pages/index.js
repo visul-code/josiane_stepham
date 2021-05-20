@@ -3,6 +3,9 @@ import styled from "styled-components";
 import Hero from "../components/Hero";
 import Offer from "../components/Offer";
 import About from "../components/About";
+import Praxis from "../components/Praxis";
+import { graphql } from "gatsby";
+
 const IndexWrapper = styled.main`
   display: flex;
   flex-direction: column;
@@ -13,15 +16,29 @@ const IndexWrapper = styled.main`
   }
 `;
 
-const IndexPage = () => {
+const IndexPage = ({ data: { praxis } }) => {
   return (
     <IndexWrapper>
       <Hero />
       <Offer />
       <About />
-      <div className="placeholder"></div>
+      <Praxis praxis={praxis} />
     </IndexWrapper>
   );
 };
 
 export default IndexPage;
+
+export const homeQuery = graphql`
+  {
+    praxis: allFile(filter: { relativeDirectory: { eq: "Studio" } }) {
+      edges {
+        node {
+          childImageSharp {
+            gatsbyImageData
+          }
+        }
+      }
+    }
+  }
+`;

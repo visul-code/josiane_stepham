@@ -1,11 +1,16 @@
 import React, { createContext, useState } from "react";
 import { ThemeProvider, createGlobalStyle } from "styled-components";
 import "normalize.css";
-
+import { mediaQueries } from "../utils/MediaQuerie";
 export const GlobalStateContext = createContext();
 
 const GlobalContextProvider = ({ children }) => {
   const [theme, setTheme] = useState("default");
+  const [open, setOpen] = useState(false);
+
+  const handleSetOpen = () => {
+    setOpen(!open);
+  };
 
   const switchTheme = (e) => {
     setTheme(e);
@@ -25,9 +30,14 @@ const GlobalContextProvider = ({ children }) => {
 
 //TYPO
 h1{
- font-size: 9rem;
+ font-size: 5vw;
  font-weight: 300;
  color: ${({ theme }) => theme.colors.secondary};
+
+ ${mediaQueries.lessThan("tablet")`
+font-size: 8vw;
+`}
+
 }
 
 
@@ -67,7 +77,9 @@ color: ${({ theme }) => theme.colors.primary};
   };
 
   return (
-    <GlobalStateContext.Provider value={{ switchTheme, theme }}>
+    <GlobalStateContext.Provider
+      value={{ switchTheme, theme, open, handleSetOpen }}
+    >
       <ThemeProvider theme={themes[theme]}>
         <GlobalStyle />
         {children}
