@@ -64,12 +64,5 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    {
-      resolve: `gatsby-plugin-google-fonts`,
-      options: {
-        fonts: [`IBM Plex Mono`],
-        display: "swap",
-      },
-    },
   ],
 };

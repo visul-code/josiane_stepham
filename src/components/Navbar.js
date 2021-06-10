@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import Logo from "../images/marke.svg";
+import MobileLogo from "../images/marke_mobile.svg";
 import { AnchorLink } from "gatsby-plugin-anchor-links";
 import { mediaQueries } from "../utils/MediaQuerie";
 import Hamburger from "./Hamburger";
@@ -12,6 +13,25 @@ const StyledLink = styled((props) => <AnchorLink {...props} />)`
   text-decoration: none;
   color: ${({ theme }) => theme.colors.primary};
   background-color: ${({ theme }) => theme.primary};
+  position: relative;
+
+  ::after {
+    position: absolute;
+
+    height: 2px;
+    bottom: -10px;
+    left: 0;
+    width: 0%;
+    content: "";
+    background-color: ${({ theme }) => theme.colors.secondary};
+    transition: width 0.5s ease-in-out;
+  }
+
+  :hover {
+    ::after {
+      width: 100%;
+    }
+  }
 `;
 
 const NavbarWrapper = styled.nav`
@@ -24,6 +44,11 @@ const NavbarWrapper = styled.nav`
   box-sizing: border-box;
   display: inline-flex;
   background-color: ${({ theme }) => theme.colors.background};
+
+  .desktop-logo {
+  }
+  .mobile-logo {
+  }
 
   .nav-d {
     display: flex;
@@ -54,13 +79,17 @@ const NavbarWrapper = styled.nav`
   .nav-mm {
     position: fixed;
     display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
     flex-direction: column;
     top: 80px;
     left: 0;
+    bottom: 0;
     width: 100%;
-    height: 100%;
+
+    height: calc(100%-80px);
     background: ${({ theme }) => theme.colors.background};
-    padding: 3rem;
+    padding: 3rem 3rem 50% 3rem;
     transition: transform 0.5s ease-in-out;
     transform: ${(props) =>
       props.open ? "translate(0,0)" : "translate(-100%, 0)"};
@@ -73,6 +102,13 @@ const NavbarWrapper = styled.nav`
   svg {
     width: auto;
     height: 100%;
+
+    ${mediaQueries.lessThan("tablet")`
+    width: 100%;
+    height: 100%;
+
+    
+    `}
   }
 `;
 
@@ -81,9 +117,16 @@ const Navbar = () => {
 
   return (
     <NavbarWrapper open={open}>
-      <AnchorLink to="/">
-        <Logo />
-      </AnchorLink>
+      <div className="desktop-logo">
+        <AnchorLink to="/#top">
+          <Logo />
+        </AnchorLink>
+      </div>
+      {/*     <div className="mobile-logo">
+        <AnchorLink to="/#top">
+          <MobileLogo />
+        </AnchorLink>
+      </div> */}
 
       <div className="nav-d">
         <StyledLink to="/#naturheilkunde">Naturheilkunde</StyledLink>

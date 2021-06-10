@@ -18,7 +18,7 @@ const IndexWrapper = styled.main`
 
 const IndexPage = ({ data: { praxis } }) => {
   return (
-    <IndexWrapper>
+    <IndexWrapper id="top">
       <Hero />
       <Offer />
       <About />

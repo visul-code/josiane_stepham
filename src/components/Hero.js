@@ -12,10 +12,7 @@ const HeroWrapper = styled.div`
     flex-direction: row;
 
     ${mediaQueries.lessThan("tablet")`
-
 flex-direction: column-reverse;
-
-
 `}
   }
 
