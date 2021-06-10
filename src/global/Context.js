@@ -52,7 +52,10 @@ font-size: 3rem;
 font-weight: 300;
 line-height: 3.6rem;
 color: ${({ theme }) => theme.colors.primary};
-
+${mediaQueries.lessThan("tablet")`
+font-size: 2.4rem;
+line-height: 2.8rem;
+`}
 }
 
 
