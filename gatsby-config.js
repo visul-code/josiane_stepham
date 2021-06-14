@@ -16,6 +16,9 @@ module.exports = {
     "gatsby-plugin-styled-components",
     {
       resolve: "gatsby-plugin-anchor-links",
+      options: {
+        offset: -100,
+      },
     },
     {
       resolve: "gatsby-source-datocms",

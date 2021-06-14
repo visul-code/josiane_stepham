@@ -16,13 +16,14 @@ const IndexWrapper = styled.main`
   }
 `;
 
-const IndexPage = ({ data: { praxis } }) => {
+const IndexPage = ({ data: { home } }) => {
+  console.log(home);
   return (
     <IndexWrapper id="top">
       <Hero />
       <Offer />
       <About />
-      <Praxis praxis={praxis} />
+      <Praxis praxis={home} />
     </IndexWrapper>
   );
 };
@@ -31,13 +32,15 @@ export default IndexPage;
 
 export const homeQuery = graphql`
   {
-    praxis: allFile(filter: { relativeDirectory: { eq: "Studio" } }) {
-      edges {
-        node {
-          childImageSharp {
-            gatsbyImageData
-          }
-        }
+    home: datoCmsHome {
+      portrait {
+        gatsbyImageData
+        alt
+      }
+
+      bilderPraxis {
+        gatsbyImageData
+        alt
       }
     }
   }

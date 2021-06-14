@@ -30,12 +30,12 @@ const GlobalContextProvider = ({ children }) => {
 
 //TYPO
 h1{
- font-size: 5vw;
+ font-size: 4.5vw;
  font-weight: 300;
  color: ${({ theme }) => theme.colors.secondary};
 
  ${mediaQueries.lessThan("tablet")`
-font-size: 8vw;
+font-size: 10vw;
 `}
 
 }
@@ -45,6 +45,8 @@ font-size: 8vw;
   font-size: 2rem;
   font-weight: 300;
   color: ${({ theme }) => theme.colors.text};
+
+
 }
 
 .t-paragraph{

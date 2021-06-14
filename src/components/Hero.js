@@ -6,7 +6,13 @@ import { mediaQueries } from "../utils/MediaQuerie";
 
 const HeroWrapper = styled.div`
   width: 100%;
-  margin-bottom: 10rem;
+  padding-bottom: 10rem;
+  padding-top: 10rem;
+
+  ${mediaQueries.lessThan("tablet")`
+  padding-bottom: 5rem;
+  padding-top: 5rem;
+`}
 
   section {
     flex-direction: row;

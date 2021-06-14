@@ -2,10 +2,19 @@ import styled from "styled-components";
 import React from "react";
 import Container from "../components/Container";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { mediaQueries } from "../utils/MediaQuerie";
 
 const PraxisWrapper = styled.div`
   width: 100%;
-  padding: 20rem 0;
+  padding-bottom: 10rem;
+  padding-top: 10rem;
+
+  ${mediaQueries.lessThan("tablet")`
+
+padding-bottom: 5rem;
+  padding-top: 5rem;
+
+`}
 
   section {
     flex-direction: column;
@@ -40,10 +49,20 @@ const PraxisWrapper = styled.div`
     font-size: 3rem;
     font-style: normal;
   }
+
+  .image-container {
+    margin: 10rem 0;
+    display: flex;
+    justify-content: space-around;
+    ${mediaQueries.lessThan("tablet")`
+flex-direction: column;
+
+`};
+  }
 `;
 
 const Praxis = ({ praxis, ...props }) => {
-  console.log(props);
+  console.log(praxis);
   return (
     <PraxisWrapper id="praxis">
       <Container>
@@ -65,6 +84,12 @@ const Praxis = ({ praxis, ...props }) => {
           </address>
         </div>
       </Container>
+      <div className="image-container">
+        {praxis.bilderPraxis.map((e, index) => {
+          const image = getImage(e);
+          return <GatsbyImage key={index} image={image} alt={e.alt} />;
+        })}
+      </div>
     </PraxisWrapper>
   );
 };

@@ -6,8 +6,13 @@ import { mediaQueries } from "../utils/MediaQuerie";
 
 const OfferWrapper = styled.div`
   width: 100%;
-  padding: 20rem 0;
 
+  padding-bottom: 10rem;
+  padding-top: 10rem;
+  ${mediaQueries.lessThan("tablet")`
+  padding-bottom: 5rem;
+  padding-top: 5rem;
+`}
   section {
     flex-direction: row;
     ${mediaQueries.lessThan("tablet")`

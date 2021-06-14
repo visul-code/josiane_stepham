@@ -6,7 +6,14 @@ const AboutWrapper = styled.div`
   width: 100%;
 
   background-color: ${({ theme }) => theme.colors.primary};
-  padding: 20rem 0;
+
+  padding-bottom: 10rem;
+  padding-top: 10rem;
+  ${mediaQueries.lessThan("tablet")`
+  padding-bottom: 5rem;
+  padding-top: 5rem;
+`}
+
   section {
     flex-direction: row;
     ${mediaQueries.lessThan("tablet")`
@@ -16,11 +23,14 @@ flex-direction: column;
 
   .t-container {
     flex: 1;
+
     h1 {
       color: ${({ theme }) => theme.colors.textAlt};
     }
   }
-
+  .t-paragraph {
+    color: ${({ theme }) => theme.colors.textAlt};
+  }
   .content {
     flex: 1;
     margin-left: 6rem;

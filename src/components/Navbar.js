@@ -40,7 +40,7 @@ const NavbarWrapper = styled.nav`
   top: 0;
   z-index: 100;
   width: 100%;
-  padding: 1rem 10%;
+  padding: 1rem 5%;
   box-sizing: border-box;
   display: inline-flex;
   background-color: ${({ theme }) => theme.colors.background};
