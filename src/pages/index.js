@@ -22,7 +22,7 @@ const IndexPage = ({ data: { home } }) => {
     <IndexWrapper id="top">
       <Hero />
       <Offer />
-      <About />
+      <About about={home} />
       <Praxis praxis={home} />
     </IndexWrapper>
   );

@@ -1,7 +1,7 @@
 module.exports = {
-    siteUrl: 'https://domain.com',
-    sitemapPath: '/sitemap.xml',
-    title: 'Gatsby DatoCMS Starter',
-    description: 'Website Description',
-    author: '@developer',
-  };
+  siteUrl: "https://josianestepham.ch",
+  sitemapPath: "/sitemap.xml",
+  title: "Josiane Stepham",
+  description: "Beschreibung Webseite",
+  author: "@developer",
+};

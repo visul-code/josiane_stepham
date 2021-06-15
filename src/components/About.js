@@ -2,6 +2,8 @@ import styled from "styled-components";
 import React from "react";
 import Container from "../components/Container";
 import { mediaQueries } from "../utils/MediaQuerie";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
+
 const AboutWrapper = styled.div`
   width: 100%;
 
@@ -44,7 +46,9 @@ margin-left: 0;
   }
 `;
 
-const Offer = () => {
+const Offer = ({ about }) => {
+  const image = getImage(about.portrait.gatsbyImageData);
+
   return (
     <AboutWrapper id="uebermich">
       <Container>
@@ -54,6 +58,7 @@ const Offer = () => {
             Ein Blindtext sollte möglichst viele verschiedene Buchstaben
             enthalten und in der Originalsprache gesetzt sein.
           </p>
+          <GatsbyImage image={image} alt={about.portrait.alt} />
         </div>
         <div className="content">
           <p className="paragraph">

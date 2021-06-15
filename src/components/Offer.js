@@ -14,9 +14,17 @@ const OfferWrapper = styled.div`
   padding-top: 5rem;
 `}
   section {
+    :nth-child(1) {
+      padding-bottom: 10rem;
+      ${mediaQueries.lessThan("tablet")`
+    padding-bottom: 5rem;
+
+`}
+    }
+
     flex-direction: row;
     ${mediaQueries.lessThan("tablet")`
-flex-direction: column;
+    flex-direction: column;
 `}
   }
 

@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import Logo from "../images/marke.svg";
-import MobileLogo from "../images/marke_mobile.svg";
 import { AnchorLink } from "gatsby-plugin-anchor-links";
 import { mediaQueries } from "../utils/MediaQuerie";
 import Hamburger from "./Hamburger";
