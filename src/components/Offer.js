@@ -1,8 +1,12 @@
 import styled from "styled-components";
-import React from "react";
+import React, { useRef, useCallback } from "react";
 import Container from "../components/Container";
 import OfferArt from "../images/natur.svg";
 import { mediaQueries } from "../utils/MediaQuerie";
+import * as animationData from "../animation/offer.json";
+import Lottie from "react-lottie";
+
+import { useInView } from "react-intersection-observer";
 
 const OfferWrapper = styled.div`
   width: 100%;
@@ -64,6 +68,25 @@ margin: 0;
 `;
 
 const Offer = () => {
+  const defaultOptions = {
+    loop: false,
+    autoplay: true,
+    animationData: animationData,
+  };
+
+  const ref = useRef();
+  const [inViewRef, inView] = useInView({ threshold: 0 });
+
+  const setRefs = useCallback(
+    (node) => {
+      // Ref's from useRef needs to have the node assigned to `current`
+      ref.current = node;
+      // Callback refs, like the one from `useInView`, is a function that takes the node as an argument
+      inViewRef(node);
+    },
+    [inViewRef]
+  );
+
   return (
     <OfferWrapper>
       <Container>
@@ -73,8 +96,14 @@ const Offer = () => {
             Ein Blindtext sollte möglichst viele verschiedene Buchstaben
             enthalten und in der Originalsprache gesetzt sein.
           </p>
-          <div className="svg-wrapper-d">
-            <OfferArt />
+          <div ref={setRefs} className="svg-wrapper-d">
+            {/*    <OfferArt /> */}
+            <Lottie
+              isStopped={!inView}
+              /*          isStopped={!inView}
+            isClickToPauseDisabled={true} */
+              options={defaultOptions}
+            />
           </div>
         </div>
         <div className="content">
@@ -113,8 +142,13 @@ const Offer = () => {
             es gleichgültig ob ich schreibe: »Dies ist ein Blindtext.
           </p>
         </div>
-        <div className="svg-wrapper-m">
-          <OfferArt />
+        <div ref={setRefs} className="svg-wrapper-m">
+          <Lottie
+            isStopped={!inView}
+            /*          isStopped={!inView}
+            isClickToPauseDisabled={true} */
+            options={defaultOptions}
+          />
         </div>
       </Container>
       <Container>

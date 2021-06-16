@@ -3,6 +3,9 @@ import React from "react";
 import Container from "../components/Container";
 import HeroArt from "../images/hero.svg";
 import { mediaQueries } from "../utils/MediaQuerie";
+import Lottie from "react-lottie";
+import * as animationData from "../animation/hero.json";
+import { useInView } from "react-intersection-observer";
 
 const HeroWrapper = styled.div`
   width: 100%;
@@ -35,11 +38,27 @@ flex-direction: column-reverse;
 `;
 
 const Hero = () => {
+  const defaultOptions = {
+    loop: false,
+    autoplay: true,
+    animationData: animationData,
+  };
+
+  const { ref, inView } = useInView({
+    threshold: 0,
+  });
+
   return (
     <HeroWrapper>
       <Container>
-        <div className="svg-wrapper">
-          <HeroArt />
+        <div ref={ref} className="svg-wrapper">
+          {/*      <HeroArt /> */}
+          <Lottie
+            isStopped={!inView}
+            /*          isStopped={!inView}
+            isClickToPauseDisabled={true} */
+            options={defaultOptions}
+          />
         </div>
         <div className="t-container">
           <h1>

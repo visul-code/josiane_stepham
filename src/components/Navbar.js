@@ -44,9 +44,10 @@ const NavbarWrapper = styled.nav`
   display: inline-flex;
   background-color: ${({ theme }) => theme.colors.background};
 
-  .desktop-logo {
-  }
-  .mobile-logo {
+  .logo {
+    display: flex;
+
+    align-items: center;
   }
 
   .nav-d {
@@ -79,7 +80,7 @@ const NavbarWrapper = styled.nav`
     position: fixed;
     display: flex;
     align-items: flex-start;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-direction: column;
     top: 80px;
     left: 0;
@@ -94,7 +95,7 @@ const NavbarWrapper = styled.nav`
       props.open ? "translate(0,0)" : "translate(-100%, 0)"};
 
     a {
-      font-size: 5rem;
+      font-size: 4rem;
     }
   }
 
@@ -103,8 +104,8 @@ const NavbarWrapper = styled.nav`
     height: 100%;
 
     ${mediaQueries.lessThan("tablet")`
-    width: 100%;
-    height: 100%;
+ height: 50px;
+  
 
     
     `}
@@ -116,9 +117,9 @@ const Navbar = () => {
 
   return (
     <NavbarWrapper open={open}>
-      <div className="desktop-logo">
+      <div className="logo">
         <AnchorLink to="/#top">
-          <Logo />
+          <Logo className="logo" />
         </AnchorLink>
       </div>
       {/*     <div className="mobile-logo">
