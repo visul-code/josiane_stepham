@@ -23,7 +23,7 @@ module.exports = {
     {
       resolve: "gatsby-source-datocms",
       options: {
-        apiToken: DATO_CMS_KEY,
+        apiToken: process.env.DATO_CMS_KEY,
       },
     },
 
