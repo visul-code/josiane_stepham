@@ -101,7 +101,7 @@ const NavbarWrapper = styled.nav`
 
   svg {
     width: auto;
-    height: 100%;
+    height: 80px;
 
     ${mediaQueries.lessThan("tablet")`
  height: 50px;

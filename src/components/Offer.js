@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import React, { useRef, useCallback } from "react";
 import Container from "../components/Container";
-import OfferArt from "../images/natur.svg";
+
 import { mediaQueries } from "../utils/MediaQuerie";
 import * as animationData from "../animation/offer.json";
 import Lottie from "react-lottie";

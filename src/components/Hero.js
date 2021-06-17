@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import React from "react";
 import Container from "../components/Container";
-import HeroArt from "../images/hero.svg";
+
 import { mediaQueries } from "../utils/MediaQuerie";
 import Lottie from "react-lottie";
 import * as animationData from "../animation/hero.json";

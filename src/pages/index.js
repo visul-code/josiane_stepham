@@ -5,8 +5,6 @@ import Offer from "../components/Offer";
 import About from "../components/About";
 import Praxis from "../components/Praxis";
 import { graphql } from "gatsby";
-import Lottie from "react-lottie";
-import * as animationData from "../animation/hero.json";
 
 const IndexWrapper = styled.main`
   display: flex;
@@ -19,11 +17,6 @@ const IndexWrapper = styled.main`
 `;
 
 const IndexPage = ({ data: { home } }) => {
-  const defaultOptions = {
-    loop: false,
-    autoplay: true,
-    animationData: animationData,
-  };
   return (
     <IndexWrapper id="top">
       <Hero />
