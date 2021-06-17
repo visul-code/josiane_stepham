@@ -42,18 +42,6 @@ const OfferWrapper = styled.div`
     }
   }
 
-  .svg-wrapper-d {
-    ${mediaQueries.lessThan("tablet")`
-display: none;
-`}
-  }
-  .svg-wrapper-m {
-    display: none;
-    ${mediaQueries.lessThan("tablet")`
-  display: block;
-`}
-  }
-
   .t-container {
     flex: 1;
   }
@@ -96,7 +84,7 @@ const Offer = () => {
             Ein Blindtext sollte möglichst viele verschiedene Buchstaben
             enthalten und in der Originalsprache gesetzt sein.
           </p>
-          <div ref={setRefs} className="svg-wrapper-d">
+          <div ref={setRefs}>
             {/*    <OfferArt /> */}
             <Lottie
               isStopped={!inView}
@@ -141,14 +129,6 @@ const Offer = () => {
             gibt lediglich den Grauwert der Schrift an. Ist das wirklich so? Ist
             es gleichgültig ob ich schreibe: »Dies ist ein Blindtext.
           </p>
-        </div>
-        <div ref={setRefs} className="svg-wrapper-m">
-          <Lottie
-            isStopped={!inView}
-            /*          isStopped={!inView}
-            isClickToPauseDisabled={true} */
-            options={defaultOptions}
-          />
         </div>
       </Container>
       <Container>
