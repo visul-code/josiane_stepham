@@ -30,6 +30,7 @@
     "gatsby-plugin-styled-components": "^4.5.0",
     "gatsby-source-datocms": "^2.6.15",
     "gatsby-source-filesystem": "^3.5.0",
+    "gatsby-transformer-remark": "^4.7.0",
     "gatsby-transformer-sharp": "^3.5.0",
     "install": "^0.13.0",
     "normalize.css": "^8.0.1",

@@ -55,7 +55,8 @@ margin: 0;
   }
 `;
 
-const Offer = () => {
+const Offer = (props) => {
+  console.log(props);
   const defaultOptions = {
     loop: false,
     autoplay: true,
@@ -80,10 +81,7 @@ const Offer = () => {
       <Container>
         <div className="t-container" id="naturheilkunde">
           <h1>Naturheilkunde</h1>
-          <p className="t-paragraph">
-            Ein Blindtext sollte möglichst viele verschiedene Buchstaben
-            enthalten und in der Originalsprache gesetzt sein.
-          </p>
+          <p className="t-paragraph">{props.offer.untertitelNaturheilkunde}</p>
           <div ref={setRefs}>
             {/*    <OfferArt /> */}
             <Lottie
@@ -94,8 +92,13 @@ const Offer = () => {
             />
           </div>
         </div>
-        <div className="content">
-          <p className="paragraph">
+        <div
+          className="content paragraph"
+          dangerouslySetInnerHTML={{
+            __html: props.offer.textNaturheilkundeNode.childMarkdownRemark.html,
+          }}
+        >
+          {/*  <p className="paragraph">
             Ein Blindtext sollte möglichst viele verschiedene Buchstaben
             enthalten und in der Originalsprache gesetzt sein. Er muß keinen
             Sinn ergeben, sollte aber lesbar sein. Fremdsprachige Texte wie
@@ -128,43 +131,23 @@ const Offer = () => {
             von Textausgaben. Wer diesen Text liest, ist selbst schuld. Der Text
             gibt lediglich den Grauwert der Schrift an. Ist das wirklich so? Ist
             es gleichgültig ob ich schreibe: »Dies ist ein Blindtext.
-          </p>
+          </p> */}
         </div>
       </Container>
       <Container>
         <div className="t-container" id="alternativmedizin">
           <h1>Alternativmedizin</h1>
           <p className="t-paragraph">
-            Ein Blindtext sollte möglichst viele verschiedene Buchstaben
-            enthalten und in der Originalsprache gesetzt sein.
+            {props.offer.untertitelAlternativmedizin}
           </p>
         </div>
-        <div className="content">
-          <p className="paragraph">
-            Ein Blindtext sollte möglichst viele verschiedene Buchstaben
-            enthalten und in der Originalsprache gesetzt sein. Er muß keinen
-            Sinn ergeben, sollte aber lesbar sein. Fremdsprachige Texte wie
-            »Lorem ipsum« dienen nicht dem eigentlichen Zweck, da sie eine
-            falsche Anmutung vermitteln. Dies hier ist ein Blindtext zum Testen
-            von Textausgaben. Wer diesen Text liest, ist selbst schuld. Der Text
-            gibt lediglich den Grauwert der Schrift an. Ist das wirklich so? Ist
-            es gleichgültig ob ich schreibe: »Dies ist ein Blindtext« oder
-            »Huardest gefburn«? Kjift – mitnichten! Ein Blindtext bietet mir
-            wichtige Informationen. An ihm messe ich die Lesbarkeit einer
-            Schrift, ihre Anmutung, wie harmonisch die Figuren zueinander stehen
-            und prüfe, wie breit oder schmal sie läuft. Ein Blindtext sollte
-            möglichst viele verschiedene Buchstaben enthalten und in der
-            Originalsprache gesetzt sein.
-          </p>
-          <p className="paragraph">
-            Er muss keinen Sinn ergeben, sollte aber lesbar sein. Fremdsprachige
-            Texte wie »Lorem ipsum« dienen nicht dem eigentlichen Zweck, da sie
-            eine falsche Anmutung vermitteln. Dies hier ist ein Blindtext zum
-            Testen von Textausgaben. Wer diesen Text liest, ist selbst schuld.
-            Der Text gibt lediglich den Grauwert der Schrift an. Ist das
-            wirklich so? Ist es gleichgültig ob ich schreibe.
-          </p>
-        </div>
+        <div
+          className="content paragraph"
+          dangerouslySetInnerHTML={{
+            __html:
+              props.offer.textAlternativmedizinNode.childMarkdownRemark.html,
+          }}
+        ></div>
       </Container>
     </OfferWrapper>
   );

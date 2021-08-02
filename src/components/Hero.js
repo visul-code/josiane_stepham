@@ -37,7 +37,7 @@ flex-direction: column-reverse;
   }
 `;
 
-const Hero = () => {
+const Hero = (props) => {
   const defaultOptions = {
     loop: false,
     autoplay: true,
@@ -65,13 +65,7 @@ const Hero = () => {
             Mit dem Blick <br />
             für Menschen
           </h1>
-          <p className="t-paragraph">
-            Ein Blindtext bietet mir wichtige Informationen. An ihm messe ich
-            die Lesbarkeit einer Schrift, ihre Anmutung, wie harmonisch die
-            Figuren zueinander stehen und prüfe, wie breit oder schmal sie
-            läuft. Ein Blindtext sollte möglichst viele verschiedene Buchstaben
-            enthalten und in der Originalsprache gesetzt sein.
-          </p>
+          <p className="t-paragraph">{props.hero.untertitelIntro}</p>
         </div>
       </Container>
     </HeroWrapper>

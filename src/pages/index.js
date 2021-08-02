@@ -19,8 +19,8 @@ const IndexWrapper = styled.main`
 const IndexPage = ({ data: { home } }) => {
   return (
     <IndexWrapper id="top">
-      <Hero />
-      <Offer />
+      <Hero hero={home} />
+      <Offer offer={home} />
       <About about={home} />
       <Praxis praxis={home} />
     </IndexWrapper>
@@ -36,10 +36,29 @@ export const homeQuery = graphql`
         gatsbyImageData
         alt
       }
-
       bilderPraxis {
         gatsbyImageData
         alt
+      }
+      untertitelAbout
+      untertitelAlternativmedizin
+      untertitelIntro
+      untertitelNaturheilkunde
+      untertitelPraxis
+      textNaturheilkundeNode {
+        childMarkdownRemark {
+          html
+        }
+      }
+      textAlternativmedizinNode {
+        childMarkdownRemark {
+          html
+        }
+      }
+      textAboutNode {
+        childMarkdownRemark {
+          html
+        }
       }
     }
   }
