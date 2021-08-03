@@ -1,21 +1,18 @@
 import React from "react";
-import { Helmet } from "react-helmet";
+
 import styled from "styled-components";
 import Navbar from "../components/Navbar";
-import { graphql } from "gatsby";
+import SEO from "../components/SEO";
 
 const SiteRoot = styled.div`
   margin: 100px 0px 0px 0px;
 `;
 
-const Layout = ({ children, location, data }) => {
-  console.log(data);
-
-  const metaDescription = data.seo.globalSeo.fallbackSeo.description;
-
+const Layout = ({ children, location }) => {
   return (
     <SiteRoot id="top">
-      <Helmet
+      <SEO />
+      {/*       <Helmet
         meta={[
           {
             name: `description`,
@@ -28,7 +25,7 @@ const Layout = ({ children, location, data }) => {
         }}
       >
         <link rel="preconnect" href="https://datocms-assets.com" />
-      </Helmet>
+      </Helmet> */}
       <Navbar />
       {children}
     </SiteRoot>
