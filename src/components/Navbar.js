@@ -118,7 +118,7 @@ const Navbar = () => {
   return (
     <NavbarWrapper open={open}>
       <div className="logo">
-        <AnchorLink to="/#top" onAnchorLinkClick={() => handleSetOpen()}>
+        <AnchorLink to="/#top">
           <Logo className="logo" />
         </AnchorLink>
       </div>
