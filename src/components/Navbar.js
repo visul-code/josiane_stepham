@@ -91,6 +91,8 @@ const NavbarWrapper = styled.nav`
     background: ${({ theme }) => theme.colors.background};
     padding: 3rem 3rem 50% 3rem;
     transition: transform 0.5s ease-in-out;
+    will-change: transform;
+
     transform: ${(props) =>
       props.open ? "translate(0,0)" : "translate(-100%, 0)"};
 
