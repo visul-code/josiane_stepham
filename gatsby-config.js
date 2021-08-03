@@ -28,6 +28,15 @@ module.exports = {
         apiToken: process.env.DATO_CMS_KEY,
       },
     },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        icon: `src/images/favicon.svg`,
+        icon_options: {
+          purpose: `maskable`,
+        },
+      },
+    },
 
     {
       resolve: "gatsby-plugin-sitemap",

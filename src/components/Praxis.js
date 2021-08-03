@@ -68,19 +68,20 @@ const Praxis = ({ praxis, ...props }) => {
       <Container>
         <div className="t-container">
           <h1>Praxis</h1>
-          <p className="t-paragraph">
-            Ein Blindtext sollte möglichst viele verschiedene Buchstaben
-            enthalten und in der Originalsprache gesetzt sein.
-          </p>
+          <p className="t-paragraph">{praxis.untertitelPraxis}</p>
         </div>
         <div className="content">
           <address>
-            <span id="name">Josiane Stepham</span>
+            <span id="name">{praxis.name}</span>
             <br />
-            Chapfwiesenstrasse 12 <br />
-            8712 Stäfa <br />
-            <a href="tel:+4100000000">000 000 00 00</a> <br />
-            <a href="mailto:js@josiane-stepham.ch">js@josiane-stepham.ch</a>
+            {praxis.adresse}
+            <br />
+            {praxis.plzOrt}
+            <br />
+            {praxis.telefon}
+            <br />
+
+            <a href={`mailto:${praxis.eMail}`}>{praxis.eMail}</a>
           </address>
         </div>
       </Container>

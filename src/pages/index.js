@@ -31,7 +31,17 @@ export default IndexPage;
 
 export const homeQuery = graphql`
   {
+    seo: datoCmsSite {
+      globalSeo {
+        fallbackSeo {
+          description
+          title
+        }
+      }
+    }
+
     home: datoCmsHome {
+      titel
       portrait {
         gatsbyImageData
         alt
@@ -40,6 +50,11 @@ export const homeQuery = graphql`
         gatsbyImageData
         alt
       }
+      plzOrt
+      name
+      adresse
+      eMail
+      telefon
       untertitelAbout
       untertitelAlternativmedizin
       untertitelIntro

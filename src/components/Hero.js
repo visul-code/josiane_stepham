@@ -37,7 +37,7 @@ flex-direction: column-reverse;
   }
 `;
 
-const Hero = (props) => {
+const Hero = ({ hero }) => {
   const defaultOptions = {
     loop: false,
     autoplay: true,
@@ -61,11 +61,8 @@ const Hero = (props) => {
           />
         </div>
         <div className="t-container">
-          <h1>
-            Mit dem Blick <br />
-            für Menschen
-          </h1>
-          <p className="t-paragraph">{props.hero.untertitelIntro}</p>
+          <h1>{hero.titel}</h1>
+          <p className="t-paragraph">{hero.untertitelIntro}</p>
         </div>
       </Container>
     </HeroWrapper>
